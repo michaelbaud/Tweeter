@@ -1,15 +1,13 @@
 import React from 'react'
 
-import img from '../img/mika12.jpg'
-
-const MessageForm = ({ handleSubmit, handleKeyDown, handleChange, values, errors }) => {
+const MessageForm = ({ handleSubmit, handleKeyDown, handleChange, values, errors, user }) => {
 
     return (
         <form onSubmit={handleSubmit} className="message-form-container">
             <div className="message-form">
                 <div>
                     <img
-                        src={img}
+                        src={user.photoURL}
                         alt="Profil"
                         className="profil-picture"
                     />

@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-// Components
-import MessageForm from './MessageForm'
+// Context
+import { FirebaseContext } from '../firebase'
 
 // Hooks
 import useForm from '../hooks/useForm'
@@ -9,23 +9,32 @@ import useForm from '../hooks/useForm'
 // Helpers
 import validateMessage from '../helpers/validateMessage'
 
+// Components
+import MessageForm from './MessageForm'
+
+
+
 const INITIAL_STATE = {
     message: ""
 }
 
 const CreateMessage = () => {
 
+    const { user, firebase } = useContext(FirebaseContext)
+
     const handleCreateMessage = () => {
         const { message } = values
         const newMessage = {
             message: message,
-            postedBy: "464686846",
-            name: "Michael Baudoin",
+            postedBy: {
+                id: user.uid,
+                name: user.displayName
+            },
             likes: [],
             createAt: Date.now(),
-            photo: ""
+            photo: user.photoURL
         }
-        console.log(newMessage)
+        firebase.db.collection('messages').add(newMessage)
     }
 
     const { handleSubmit, handleKeyDown, handleChange, values, errors } = useForm(
@@ -35,13 +44,14 @@ const CreateMessage = () => {
     )
 
     return (
-        <MessageForm
+        user && (<MessageForm
             handleSubmit={handleSubmit}
             handleKeyDown={handleKeyDown}
             handleChange={handleChange}
             values={values}
             errors={errors}
-        />
+            user={user}
+        />)
     )
 }
 

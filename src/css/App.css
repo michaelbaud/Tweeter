@@ -132,14 +132,6 @@ p {
   font-size: 1.2rem;
 }
 
-.message > footer {
-  display: flex;
-  justify-content: space-between;
-  color: #657786;
-  padding-top: 0.5rem;
-  font-size: 1.2rem;
-}
-
 .icon-group {
   display: flex;
   justify-content: center;
@@ -159,10 +151,6 @@ p {
   margin-left: 0.2rem;
 }
 
-.test-blue {
-  color: blue;
-}
-
 .icon-group:hover > .icon-blue {
   color: #1da1f2;
   background: #e8f5fe;
@@ -170,13 +158,7 @@ p {
 .icon-group:hover > .icon-text-blue {
   color: #1da1f2;
 }
-.icon-group:hover > .icon-green {
-  color: #5cb85c;
-  background: #e1f1e1;
-}
-.icon-group:hover > .icon-text-green {
-  color: #5cb85c;
-}
+
 .icon-group:hover > .icon-red {
   color: #d9534f;
   background: #f1dbdb;
@@ -190,5 +172,5 @@ p {
 }
 
 .icon-isLike {
-  color: #d9534f;
+  color: #1da1f2;
 }
